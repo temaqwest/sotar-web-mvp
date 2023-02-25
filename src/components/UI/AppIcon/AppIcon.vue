@@ -4,9 +4,9 @@ import * as Sprite from '@/assets/svg/sprite.svg'
 
 interface AppIconProps {
   name: string
-  iconWidth: string
-  iconHeight: string
-  iconColor: string
+  iconWidth?: string
+  iconHeight?: string
+  iconColor?: string
 }
 
 const props = defineProps<AppIconProps>()

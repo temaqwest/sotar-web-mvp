@@ -8,10 +8,11 @@
 import { computed } from 'vue'
 
 interface AppButtonProps {
-  color: 'orange' | 'black'
-  size: 'large' | 'normal' | 'small'
-  border: 'rounded' | 'square'
-  text: 'bold' | 'regular'
+  color?: 'orange' | 'black'
+  size?: 'large' | 'normal' | 'small'
+  border?: 'rounded' | 'square'
+  text?: 'bold' | 'regular'
+  variant?: 'regular' | 'clear'
 }
 
 const props = withDefaults(defineProps<AppButtonProps>(), {
@@ -19,10 +20,11 @@ const props = withDefaults(defineProps<AppButtonProps>(), {
   size: 'normal',
   border: 'square',
   text: 'bold',
+  variant: 'regular',
 })
 
 const classes = computed(() => {
-  const options = ['color', 'size', 'border', 'text']
+  const options = ['color', 'size', 'border', 'text', 'variant']
 
   return options.map(
     (option: string) =>
@@ -33,10 +35,19 @@ const classes = computed(() => {
 
 <style lang="postcss" scoped>
 .app-button {
-  @apply text-white;
+  @apply text-white cursor-pointer;
 
   &--border-rounded {
     @apply rounded;
+  }
+
+  &--variant {
+    &-clear {
+      padding: 0 !important;
+      margin: 0 !important;
+      display: block !important;
+      background: transparent !important;
+    }
   }
 
   &--color {

@@ -53,7 +53,6 @@ const classes = computed(() => {
 
 const handleEmmit = (e: Event): void => {
   const value = (e.target as HTMLInputElement).value
-  console.log(value)
   emit('update:modelValue', value)
 }
 </script>

@@ -20,4 +20,7 @@
 	<symbol id="arrow_down" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<path d="M1.375 1.1875L7 6.8125L12.625 1.1875" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 	</symbol>
+	<symbol id="close" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M2 2L18 18M2 18L18 2" stroke="currentColor"/>
+	</symbol>
 </svg>
