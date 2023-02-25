@@ -1,75 +1,79 @@
 <script lang="ts" setup>
 import BackGround from '@/components/BackGround/BackGround.vue'
 import ViewContainer from '@/components/ViewContainer/ViewContainer.vue'
-import AppInput from '@/components/UI/AppInput/AppInput.vue'
-import AppButton from '@/components/UI/AppButton/AppButton.vue'
+import AuthForm from '@/components/AuthForm/AuthForm.vue'
 import { ref } from 'vue'
-import { AuthService } from '@/services/AuthService'
+import { useRouter } from 'vue-router'
+import { RoutePaths } from '@/router/types'
+import { AxiosError } from 'axios'
+import { useAuthStore } from '@/stores/auth'
+const router = useRouter()
+const authStore = useAuthStore()
 
-const login = ref('')
-const password = ref('')
+const formTitle = ref('Авторизация')
+const formSubtitle = ref('')
 
-async function handleLogin() {
-  console.log(login.value.length)
-  if (!login.value.length) return
-
-  const authService = new AuthService()
-
-  const response = await authService.requestCode({
-    telegramUsername: login.value.replace(/@/, ''),
-  })
-
-  console.log(response)
+const token = ref('')
+function handleLogin({ login, valid }: { login: string; valid: boolean }) {
+  if (valid) {
+    authStore
+      .requestCode({ telegramUsername: login })
+      .then((response: any) => {
+        token.value = response.token
+        formTitle.value = `${login}, введите код`
+        formSubtitle.value = ''
+        console.log('Отправлен код', response)
+      })
+      .catch((error: AxiosError) => {
+        formTitle.value = `Ошибка`
+        formSubtitle.value = 'Возможно вам надо пообщаться с нашим ботом'
+      })
+  }
+}
+function handleCode({ code, valid }: { code: string; valid: boolean }) {
+  if (valid) {
+    authStore
+      .login({ code, token: token.value })
+      .then((response: any) => {
+        console.log('Успешная авторизация', response)
+        formTitle.value = `Успешно авторизован`
+        router.push({ name: RoutePaths.home })
+      })
+      .catch((error: AxiosError) => {
+        formTitle.value = `Неправильный код`
+      })
+  }
 }
 </script>
 
 <template>
-  <BackGround bg="--dp-gradient" type="full"></BackGround>
-  <ViewContainer>
-    <div class="auth-view">
-      <div class="auth-view__header">
-        <img class="auth-view__logo" src="../../public/logo.png" />
-      </div>
-      <div class="auth-view__row">
-        <div class="auth-view__cell">
-          <div class="font-mono text-5xl text-white mb-3.5">Авторизация</div>
-          <AppInput
-            v-model="login"
-            placeholder="Ваш ник в Telegram "
-            class="w-2/4 mt-5"
-            border="rounded"
-            size="normal"
-            text="regular"
-          />
-          <AppInput
-            v-model="password"
-            border="rounded"
-            size="normal"
-            text="regular"
-            placeholder="Код"
-            class="w-2/4"
-          />
-          <AppButton
-            class="w-2/4"
-            color="orange"
-            border="rounded"
-            size="large"
-            text="bold"
-            @click="handleLogin"
-          >
-            Войти
-          </AppButton>
+  <div class="content--inner">
+    <BackGround bg="--dp-gradient" type="full"></BackGround>
+    <ViewContainer>
+      <div class="auth-view">
+        <div class="auth-view__header">
+          <img class="auth-view__logo" src="../../public/logo.png" />
         </div>
-        <div class="auth-view__cell">
-          <img
-            src="../assets/images/auth_picture.png"
-            alt="sotar auth view"
-            class="auth-view__image"
+        <div class="auth-view__row">
+          <AuthForm
+            :title="formTitle"
+            :subtitle="formSubtitle"
+            :token="token"
+            class="auth-view__cell"
+            @on-login="handleLogin"
+            @on-code="handleCode"
           />
+          <div class="auth-view__cell">
+            <img
+              src="../assets/images/auth_picture.png"
+              alt="sotar auth view"
+              class="auth-view__image"
+            />
+          </div>
         </div>
       </div>
-    </div>
-  </ViewContainer>
+    </ViewContainer>
+  </div>
 </template>
 
 <style lang="postcss">

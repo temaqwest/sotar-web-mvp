@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,23 +6,32 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      meta: {
+        requiresAuth: true,
+      },
+      component: () => import('../views/HomeView.vue'),
     },
     {
       path: '/about',
       name: 'about',
+      meta: {
+        requiresAuth: true,
+      },
       component: () => import('../views/AboutView.vue'),
     },
     {
       path: '/auth',
       name: 'auth',
+      meta: {
+        requiresAuth: false,
+      },
       component: () => import('../views/AuthView.vue'),
     },
   ],
 })
 
 router.beforeEach(async (to, from) => {
-  if (!localStorage.getItem('isAuthorized') && to.name !== 'auth') {
+  if (!localStorage.getItem('isLogged') && to.meta.requiresAuth) {
     return { name: 'auth' }
   }
 })
