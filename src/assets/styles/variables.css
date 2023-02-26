@@ -1,8 +1,29 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
-    --dp-gradient: linear-gradient(90deg, #232526 0%, #414345 100%);
-    --black-color: #181818;
+    --black-color: #252728;
     --color-white: #ffffff;
+    --dp-gradient: linear-gradient(90deg, #232526 0%, #414345 100%);
+    --ds-gradient: radial-gradient(82.16% 82.16% at 14.8% 16.58%, #232526 0%, #414345 100%);
+    --g-gradient: radial-gradient(106.08% 107.43% at 2.41% 1.87%, #0ECF5B 0%, #414345 100%);
+    --r-gradient: radial-gradient(106.08% 107.43% at 2.41% 1.87%, #D00000 0%, #414345 100%);
+    --y-gradient: radial-gradient(106.08% 107.43% at 2.41% 1.87%, #FCA311 0%, #414345 100%);
+    --b-gradient: radial-gradient(106.08% 107.43% at 2.41% 1.87%, #0077B6 0%, #414345 100%);
+    --l-grey: #959595;
+    --t-grey: #414345;
+    --s-grey: #343638;
+    --p-blue: #4A5D67;
+    --p-green: #0ECF5B;
+    --p-grey: #2C2E30;
+    --p-orange: #ED6142;
+    --p-red: #D00000;
+    --p-yellow: #FCA311;
+    --s-blue: #0077B6;
+    --s-green: #455C4E;
+    --s-orange: #5C4945;
+    --s-red: #594343;
+    --s-yellow: #5B5346;
+
+    --sidebar-len: 400px;
 }
 
 /* semantic color variables for this project */

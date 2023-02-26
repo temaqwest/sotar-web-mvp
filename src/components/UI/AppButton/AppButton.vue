@@ -8,7 +8,7 @@
 import { computed } from 'vue'
 
 interface AppButtonProps {
-  color?: 'orange' | 'black'
+  color?: 'orange' | 'black' | 'transparent'
   size?: 'large' | 'normal' | 'small'
   border?: 'rounded' | 'square'
   text?: 'bold' | 'regular'
@@ -57,6 +57,11 @@ const classes = computed(() => {
       &:hover {
         @apply bg-orange-800;
       }
+    }
+
+    &-transparent {
+      @apply bg-transparent;
+      color: var(--black-color);
     }
 
     &-black {

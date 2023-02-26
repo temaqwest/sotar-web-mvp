@@ -1,15 +1,17 @@
 <script lang="ts" setup>
-// interface props {}
-// interface emits {}
-//
-// defineEmits<emits>()
-// defineProps<props>()
+import TheSidebar from '@/components/TheSidebar.vue'
 </script>
 
 <template>
   <div class="app-layout-dashboard">
+    <TheSidebar />
     <slot></slot>
   </div>
 </template>
 
-<style lang="postcss"></style>
+<style lang="postcss">
+.app-layout-dashboard {
+  margin-left: var(--sidebar-len);
+  background-color: var(--p-grey);
+}
+</style>

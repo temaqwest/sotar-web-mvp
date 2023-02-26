@@ -12,4 +12,11 @@ export enum RoutePaths {
   home = 'home',
   auth = 'auth',
   about = 'about',
+  profile = 'profile',
+  teams = 'teams',
+  events = 'events',
+  search = 'search',
+  settings = 'settings',
+  faq = 'faq',
+  question = 'question',
 }

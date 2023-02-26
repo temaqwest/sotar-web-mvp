@@ -33,6 +33,42 @@ const router = createRouter({
       },
       component: () => import('../views/AuthView.vue'),
     },
+    {
+      path: '/profile',
+      name: RoutePaths.profile,
+      meta: {
+        requiresAuth: true,
+        layout: AppLayoutsEnum.dashboard,
+      },
+      component: () => import('../views/HomeView.vue'),
+    },
+    {
+      path: '/teams',
+      name: RoutePaths.teams,
+      meta: {
+        requiresAuth: true,
+        layout: AppLayoutsEnum.dashboard,
+      },
+      component: () => import('../views/TeamsView.vue'),
+    },
+    {
+      path: '/events',
+      name: RoutePaths.events,
+      meta: {
+        requiresAuth: true,
+        layout: AppLayoutsEnum.dashboard,
+      },
+      component: () => import('../views/HomeView.vue'),
+    },
+    {
+      path: '/search',
+      name: RoutePaths.search,
+      meta: {
+        requiresAuth: true,
+        layout: AppLayoutsEnum.dashboard,
+      },
+      component: () => import('../views/HomeView.vue'),
+    },
   ],
 })
 
