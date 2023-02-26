@@ -3,7 +3,7 @@ import BackGround from '@/components/BackGround/BackGround.vue'
 import AppButton from '@/components/UI/AppButton/AppButton.vue'
 import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
-import { RoutePaths } from '@/router/types'
+import { RoutePaths } from '@/router/router.types'
 
 const router = useRouter()
 const authStore = useAuthStore()

@@ -4,7 +4,7 @@ import ViewContainer from '@/components/ViewContainer/ViewContainer.vue'
 import AuthForm from '@/components/AuthForm/AuthForm.vue'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { RoutePaths } from '@/router/types'
+import { RoutePaths } from '@/router/router.types'
 import { AxiosError } from 'axios'
 import { useAuthStore } from '@/stores/auth'
 const router = useRouter()

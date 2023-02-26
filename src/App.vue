@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import AppLayout from '@/layouts/AppLayout.vue'
 </script>
 
 <template>
-  <div class="wrapper">
-    <!--    <RouterView name="header" />-->
-    <main class="content" role="main">
-      <RouterView />
-    </main>
-  </div>
+  <AppLayout>
+    <div class="wrapper">
+      <main class="content" role="main">
+        <RouterView />
+      </main>
+    </div>
+  </AppLayout>
   <div class="dialogs" id="dialogs"></div>
 </template>
 
