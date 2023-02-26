@@ -58,46 +58,29 @@ onMounted(() => {
 
 <style lang="postcss" scoped>
 .dialog {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  backdrop-filter: blur(5px);
-  z-index: 10;
+  @apply fixed top-0 bottom-0 right-0 left-0 z-10 backdrop-blur;
 
   &__overlay {
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+    @apply flex justify-center items-center h-full w-full bg-black/40;
   }
 
   &__content {
+    @apply flex relative items-center w-full flex-col flex-nowrap;
     max-width: 600px;
     min-height: 200px;
-    width: 100%;
-    background-color: var(--color-white);
-    border: 1px solid gray;
-    border-radius: 8px;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    position: relative;
+    background-color: var(--s-grey);
+    color: var(--color-white);
   }
 
   &__header {
-    text-align: center;
-    font-size: 25px;
-    font-weight: 600;
-    padding: 15px 20px;
+    font-size: 1.6rem;
+    padding: 1.2rem;
     width: 100%;
     user-select: none;
 
     &-title {
-      color: var(--black-color);
+      color: var(--color-white);
+      @apply font-bold;
     }
   }
 
@@ -106,7 +89,6 @@ onMounted(() => {
     position: absolute;
     top: 20px;
     right: 20px;
-    color: var(--black-color);
 
     &:hover {
       @apply text-orange-800;

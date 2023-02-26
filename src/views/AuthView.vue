@@ -84,7 +84,7 @@ function handleCode({ code, valid }: { code: string; valid: boolean }) {
   position: relative;
   min-height: 100vh;
   width: 100%;
-  padding: 60px 0;
+  padding: 3rem 0;
 
   &__row {
     display: flex;
@@ -102,12 +102,12 @@ function handleCode({ code, valid }: { code: string; valid: boolean }) {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    padding: 40px;
+    padding: 2rem;
     justify-content: center;
-    gap: 25px;
+    gap: 1.5rem;
 
     &:first-child {
-      border-right: 3px solid white;
+      border-right: 0.1rem solid white;
     }
   }
 
@@ -117,7 +117,7 @@ function handleCode({ code, valid }: { code: string; valid: boolean }) {
   }
 
   &__logo {
-    max-width: 202px;
+    max-width: 8rem;
     width: 100%;
     height: auto;
     pointer-events: none;

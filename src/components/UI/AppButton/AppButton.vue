@@ -61,7 +61,7 @@ const classes = computed(() => {
 
     &-transparent {
       @apply bg-transparent;
-      color: var(--black-color);
+      color: var(--color-white);
     }
 
     &-black {

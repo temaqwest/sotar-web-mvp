@@ -12,13 +12,13 @@ interface AppAvatarProps {
 }
 
 const props = withDefaults(defineProps<AppAvatarProps>(), {
-  size: 48
+  size: 48,
 })
 
-const avatarSize = computed(() => `${props.size}rem`)
+const avatarSize = computed(() => `${props.size}px`)
 </script>
 
-<style lang="scss">
+<style lang="postcss">
 .app-avatar {
   box-sizing: border-box;
   align-items: center;
@@ -30,7 +30,8 @@ const avatarSize = computed(() => `${props.size}rem`)
   text-align: center;
   vertical-align: middle;
   overflow: hidden;
-  background-color: $blue-color-4;
+  border-color: var(--p-orange);
+  border-width: 0.15rem;
 
   img {
     border-radius: inherit;

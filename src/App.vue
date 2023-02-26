@@ -16,7 +16,11 @@ import AppLayout from '@/layouts/AppLayout.vue'
 
 <style lang="postcss" scoped>
 .content {
-  min-height: 100vh;
+  height: 100%;
   position: relative;
+}
+
+.wrapper {
+  flex: 1;
 }
 </style>

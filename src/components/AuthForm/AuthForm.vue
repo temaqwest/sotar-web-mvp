@@ -103,7 +103,7 @@ function handleLogin() {
     </button>
     <AppDialog title="Зарегистрируйтесь в боте" v-model:show="registrationForm">
       <div class="mb-5 mx-5 grid grid-cols-1 divide-y-2">
-        <p class="p-4 bg-orange-50">
+        <p class="p-4 bg-orange-50/20">
           Если вы первый раз пользуетесь авторизацией в нашем сервисе, то вам
           необходимо
           <a
@@ -113,7 +113,7 @@ function handleLogin() {
           >
           с нашим ботом
         </p>
-        <p class="p-4 text-slate-400 bg-orange-50">
+        <p class="p-4 text-slate-400 bg-orange-50/20">
           Вы можете сделать это через
           <a
             href="https://t.me/sotar_test_bot"
@@ -127,11 +127,12 @@ function handleLogin() {
             class="mt-3 m-auto"
           />
           Просто отправьте ему команду
-          <span class="py-0.5 px-1.5 bg-orange-500 rounded font-bold text-white"
+          <span
+            class="py-0.5 px-1.5 bg-orange-500/20 rounded font-bold text-white"
             >/start</span
           >
         </p>
-        <p class="p-4 bg-orange-50">
+        <p class="p-4 bg-orange-50/20">
           После этого вы можете снова вписать свой ник в поле авторизации и
           получить код
         </p>

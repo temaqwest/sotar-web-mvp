@@ -12,7 +12,7 @@
       :style="{ height: expandableHeight }"
       :class="{
         'app-select__container--expanded': isExpanded,
-        'app-select__container--error': error
+        'app-select__container--error': error,
       }"
     >
       <button type="button" class="app-select__visible" tabindex="0">
@@ -20,7 +20,7 @@
           class="app-select__placeholder"
           :class="{
             'app-select__placeholder--active':
-              isExpanded || isSelected || isFocused
+              isExpanded || isSelected || isFocused,
           }"
         >
           {{ placeholderTitle }}
@@ -56,7 +56,7 @@ import {
   onMounted,
   onUnmounted,
   PropType,
-  ref
+  ref,
 } from 'vue'
 import SpriteIcon from '@lib/components/SpriteIcon.vue'
 import getCustomInputError from '@lib/validations/customErrors'
@@ -70,42 +70,42 @@ export interface IOption {
 export default defineComponent({
   name: 'AppSelect',
   components: {
-    SpriteIcon
+    SpriteIcon,
   },
   props: {
     modelValue: {
       type: [Object, Number, String] as PropType<
         IOption | string | number | null
       >,
-      required: false
+      required: false,
     },
     options: {
       type: Array as PropType<Array<IOption>>,
-      required: true
+      required: true,
     },
     placeholder: {
       type: String,
       required: false,
-      default: 'Select'
+      default: 'Select',
     },
     error: {
-      type: Boolean
+      type: Boolean,
     },
     customError: {
-      type: [Object, String]
+      type: [Object, String],
     },
     required: {
       type: Boolean,
-      default: false
+      default: false,
     },
     reduce: {
       type: Function,
-      default: (option: unknown) => option
+      default: (option: unknown) => option,
     },
     label: {
       type: String,
-      default: 'title'
-    }
+      default: 'title',
+    },
   },
   emits: ['update:modelValue'],
   setup(props, { emit }) {
@@ -118,7 +118,7 @@ export default defineComponent({
     const distanceToWindow = ref<number>(0)
     const windowSizes = ref({
       w: document.documentElement.clientWidth,
-      h: document.documentElement.clientHeight
+      h: document.documentElement.clientHeight,
     })
 
     const expandableHeight = computed(() => {
@@ -197,7 +197,7 @@ export default defineComponent({
     const getDimensions = () => {
       windowSizes.value = {
         w: document.documentElement.clientWidth,
-        h: document.documentElement.clientHeight
+        h: document.documentElement.clientHeight,
       }
     }
     return {
@@ -213,13 +213,13 @@ export default defineComponent({
       isExpanded,
       isSelected,
       placeholderTitle,
-      selectTitle
+      selectTitle,
     }
-  }
+  },
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 *,
 *::before,
 *::after {

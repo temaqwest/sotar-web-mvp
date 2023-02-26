@@ -83,6 +83,10 @@ export const useAuthStore = defineStore('auth', () => {
     localStorage.removeItem('accessToken')
   }
 
+  function getUserName() {
+    return userName.value ?? 'USER'
+  }
+
   return {
     requestCode,
     login,
@@ -90,5 +94,6 @@ export const useAuthStore = defineStore('auth', () => {
     SET_USERNAME,
     SET_LOGGED,
     SET_TOKENS,
+    getUserName,
   }
 })

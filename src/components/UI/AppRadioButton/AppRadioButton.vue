@@ -37,7 +37,7 @@ const updateData = (value: any) => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .option {
   display: inline-flex;
   align-items: center;

@@ -5,6 +5,7 @@ import AppButton from '@/components/UI/AppButton/AppButton.vue'
 import { RoutePaths } from '@/router/router.types'
 import { useAuthStore } from '@/stores/auth'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 interface props {}
 interface emits {}
@@ -13,11 +14,17 @@ defineEmits<emits>()
 defineProps<props>()
 
 const authStore = useAuthStore()
+const router = useRouter()
 const isLogoutModalVisible = ref(false)
 
 function handleLogout(flag = false) {
-  if (flag) authStore.logout()
-  else isLogoutModalVisible.value = true
+  if (flag) {
+    authStore.logout()
+    router.push({ name: RoutePaths.auth })
+    return
+  }
+
+  isLogoutModalVisible.value = true
 }
 interface SideBarMenuItem {
   title: string
@@ -124,18 +131,18 @@ const sidebarMenuItems: Array<SideBarMenuItem> = [
   background-color: var(--s-grey);
   width: 100%;
   display: grid;
-  padding: 30px;
+  padding: 1.5rem;
   grid-template-rows: min-content 1fr min-content;
 
   &__logo {
-    max-width: 202px;
+    max-width: 8rem;
     margin: auto;
     pointer-events: none;
     user-select: none;
   }
 
   &__list {
-    margin-top: 30px;
+    margin-top: 3rem;
 
     &--top {
     }
@@ -146,11 +153,11 @@ const sidebarMenuItems: Array<SideBarMenuItem> = [
 
   &__item {
     display: flex;
-    gap: 8px;
-    padding: 10px 15px;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
     color: var(--color-white);
-    font-size: 18px;
-    border-radius: 8px;
+    font-size: 1rem;
+    border-radius: 0.5rem;
     background-color: var(--t-grey);
     cursor: pointer;
 
@@ -159,7 +166,7 @@ const sidebarMenuItems: Array<SideBarMenuItem> = [
     }
 
     &:not(:last-child) {
-      margin-bottom: 10px;
+      margin-bottom: 0.6rem;
     }
   }
 }
